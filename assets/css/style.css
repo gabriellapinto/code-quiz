@@ -1,0 +1,14 @@
+/* universal styles */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+/* header (high scores link and timer) */
+header {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 15px;
+}
