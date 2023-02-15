@@ -1,4 +1,4 @@
-// -- TIMER CODE --
+// -- TIMER CODE -- //
 var timeCounter = document.querySelector(".time");
 var secondsLeft = 75;
 
@@ -6,6 +6,10 @@ function setTime() {
     var timerInterval = setInterval(function() {
         secondsLeft--;
         timeCounter.textContent = "Time: " + secondsLeft;
+
+        if (secondsLeft >= 0) {
+
+        }
 
         if(secondsLeft === 0) {
             clearInterval(timerInterval);
@@ -17,13 +21,13 @@ function setTime() {
 } 
 
 function timeDone() {
-    timeCounter.textContent = "TIME DONE";
+    timeCounter.textContent = "Sorry, you're out of time!";
 }
 
 setTime();
-// -- END TIMER CODE --
+// -- END TIMER CODE -- //
 
-// -- START LANDING PAGE CODE --
+// -- START LANDING PAGE CODE -- //
 var questionsBox = document.querySelector("#questions-box");
 var selectionsBox = document.querySelector("#selections-box");
 
