@@ -1,5 +1,5 @@
+// -- TIMER CODE --
 var timeCounter = document.querySelector(".time");
-
 var secondsLeft = 75;
 
 function setTime() {
@@ -21,3 +21,14 @@ function timeDone() {
 }
 
 setTime();
+// -- END TIMER CODE --
+
+// -- START LANDING PAGE CODE --
+var questionsBox = document.querySelector("#questions-box");
+var selectionsBox = document.querySelector("#selections-box");
+
+questionsBox.textContent = "Coding Quiz Challenge!";
+selectionsBox.textContent = "Try to answer the following code related questions within the time limit. Incorrect answers will penalize your score and time!";
+
+
+
