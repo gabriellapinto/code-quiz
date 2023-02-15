@@ -14,7 +14,7 @@ function setTime() {
 
 
     }, 1500);
-}
+} 
 
 function timeDone() {
     timeCounter.textContent = "TIME DONE";
