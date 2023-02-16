@@ -1,25 +1,45 @@
-var question1 = {
+var questions = [{
+    id: 0,
     text: "Commonly used data types DO NOT include:",
-    options: ["1. strings", "2. booleans", "3. alerts", "4. numbers"]
-}
-
-var question2 = {
+    options: [{text: "1. strings", isCorrect: false}, 
+              {text: "2. booleans", isCorrect: false},
+              {text: "3. alerts", isCorrect: true},
+              {text: "4. numbers", isCorrect: false}
+    ]
+},
+{
+    id: 1,
     text: "The condition in an if / else statement are enclosed with ______.",
-    options: ["1. quotes", "2. curly brackets", "3. parenthesis", "4. square brackets"]
-}
-
-var question3 = {
+    options: [{text: "1. quotes", isCorrect: false},
+              {text: "2. curly brackets", isCorrect: false},
+              {text: "3. parenthesis", isCorrect: true},
+              {text: "4. square brackets", isCorrect: false}
+    ]
+},
+{
+    id: 2,
     text: "Arrays in JavaScript can be used to store ______.",
-    options: ["1. numbers and strings", "2. other arrays", "3. booleans", "4. all of the above"]
-}
-
-var question4 = {
+    options: [{text: "1. numbers and strings", isCorrect: false},
+              {text: "2. other arrays", isCorrect: false}, 
+              {text: "3. booleans", isCorrect: false},
+              {text: "4. all of the above", isCorrect: true}
+    ]
+},
+{
+    id: 3,
     text: "String values must be enclosed within ______ when being assigned to variables.",
-    options: ["1. commas", "2. curly brackets", "3. quotes", "4. parenthesis"]
-}
-
-var question5 = {
+    options: [{text: "1. commas", isCorrect: false},
+              {text: "2. curly brackets", isCorrect: false},
+              {text: "3. quotes", isCorrect: true}, 
+              {text: "4. parenthesis", isCorrect: false}
+    ]
+},
+{
+    id: 4,
     text: "A very useful tool used during development and debugging for printing content to the debugger is:",
-    options: ["1. JavaScript", "2. terminal/bash", "3. for loops", "4. console.log"]
-}
-
+    options: [{text: "1. JavaScript", isCorrect: false},
+              {text: "2. terminal/bash", isCorrect: false},
+              {text: "3. for loops", isCorrect: false},
+              {text: "4. console.log", isCorrect: true}
+    ]
+}]
