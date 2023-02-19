@@ -4,7 +4,7 @@ var selectionsBox = document.querySelector("#selections-box");
 var correctAnswerBox = document.querySelector("#wrong-right-box");
 var startBtn = document.querySelector("#start-btn");
 var secondsLeft = 75;
-var currentQuestion = 0;
+var currentQuestionIndex = 0;
 
 // Timer that operates throughout quiz
 function timer() {
