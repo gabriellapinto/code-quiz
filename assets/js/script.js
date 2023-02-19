@@ -6,13 +6,13 @@ var startBtn = document.querySelector("#start-btn");
 var optionBtns = document.querySelector(".option");
 var secondsLeft = 75;
 var currentQuestionIndex = 0;
+var highScores = [];
 
 // Timer that operates throughout quiz
 function timer() {
     var timerInterval = setInterval(function() {
         secondsLeft--;
         timeCounter.textContent = "Time: " + secondsLeft;
-
         // Clears interval and displays text when timer reaches 0
         if(secondsLeft === 0) {
             clearInterval(timerInterval);
@@ -22,7 +22,6 @@ function timer() {
         if (isCorrect = false) {
             secondsLeft = secondsLeft - 10;
         }
-
     }, 1000);
 }
 
@@ -32,11 +31,26 @@ selectionsBox.textContent = "Try to answer the following code related questions 
 
 // The runQuiz function is called when the start button is clicked
 function runQuiz() {
-    // Hides start button after it is clicked
+    // Hides start button
     startBtn.style.display = "none";
+    // Shows answer buttons
+    optionBtns.style.display = "block";
+    // Starts timer
     timer();
 
 }
+
+function showQuestion() {
+    var question = questions[currentQuestionIndex];
+    questionsBox.textContent = question.text;
+    for (i = 0; i < selectionsBox.length; i++) {
+        selectionsBox[i].textContent = questions.options[i];
+        selectionsBox[i].addEventListener("click", selectAnswer);
+    }
+}
+
+
+
 
 // When answer option is clicked, it will go on to the next question
 optionBtns.addEventListener("click", function () {
