@@ -13,15 +13,26 @@
         <h1 class="time"></h1>
     </header>
     <section id="overall-container">
+        <!--displays question-->
         <div id="questions-box"></div>
-        <div id="selections-box">
-            <button class="option" style="display:none;" id="op1"></button>
-            <button class="option" style="display:none;" id="op2"></button>
-            <button class="option" style="display:none;" id="op3"></button>
-            <button class="option" style="display:none;" id="op4"></button>
-        </div>
+        <!--instructions for quiz-->
+        <p id="intro">Try to answer the following code related questions within the time limit.
+            Incorrect answers will penalize your score and time!</p>
+        <!--answer buttons-->
+        <button class="option" style="display:none;" id="op1"></button>
+        <button class="option" style="display:none;" id="op2"></button>
+        <button class="option" style="display:none;" id="op3"></button>
+        <button class="option" style="display:none;" id="op4"></button>
+        <!--displays if user answers wrong or Right-->
         <div id="wrong-right-box"></div>
+        <!--start button-->
         <button id="start-btn" onclick="runQuiz()">Start Quiz</button>
+        <!--high-score/initials form-->
+        <div id="initials-form" style="display:none;">
+            <label for="initials">Enter your Initials:</label>
+            <input type="text" id="initials" name="initials">
+            <button id="submit-initials">Submit</button>
+        </div>
     </section>
     <script src="./assets/js/questions.js"></script>
     <script src="./assets/js/script.js"></script>

@@ -1,11 +1,12 @@
+var instructions = document.querySelector(".intro");
 var timeCounter = document.querySelector(".time");
 var questionsBox = document.querySelector("#questions-box");
-var selectionsBox = document.querySelector("#selections-box");
 var correctAnswerBox = document.querySelector("#wrong-right-box");
 var startBtn = document.querySelector("#start-btn");
 var optionBtns = document.querySelector(".option");
 var secondsLeft = 75;
 var currentQuestionIndex = 0;
+var score = 0;
 var highScores = [];
 
 // Timer that operates throughout quiz
@@ -18,21 +19,17 @@ function timer() {
             clearInterval(timerInterval);
             timeCounter.textContent = "Sorry, you're out of time!";
         }
-        // Deducts 10 seconds if user answers incorrectly
-        if (isCorrect = false) {
-            secondsLeft = secondsLeft - 10;
-        }
     }, 1000);
 }
 
 // Landing page content with instructions on how the quiz works
 questionsBox.textContent = "Coding Quiz Challenge!";
-selectionsBox.textContent = "Try to answer the following code related questions within the time limit. Incorrect answers will penalize your score and time!";
 
 // The runQuiz function is called when the start button is clicked
 function runQuiz() {
-    // Hides start button
+    // Hides start button and instructions
     startBtn.style.display = "none";
+    instructions.style.display = "none";
     // Shows answer buttons
     optionBtns.style.display = "block";
     // Starts timer
@@ -42,11 +39,39 @@ function runQuiz() {
 
 function showQuestion() {
     var question = questions[currentQuestionIndex];
-    questionsBox.textContent = question.text;
-    for (i = 0; i < selectionsBox.length; i++) {
-        selectionsBox[i].textContent = questions.options[i];
-        selectionsBox[i].addEventListener("click", selectAnswer);
+    questionsBox.textContent = question.question;
+    for (i = 0; i < optionBtns.length; i++) {
+        optionBtns[i].textContent = questions.options[i];
+        optionBtns[i].addEventListener("click", selectAnswer);
     }
+}
+
+function selectAnswer() {
+    // Checks if user answers wrong or right
+    if (this.textContent === questions[currentQuestionIndex].isCorrect) {
+        score++;
+        correctAnswerBox.textContent = "Correct!";
+    } else {
+        secondsLeft -= 10;
+        correctAnswerBox.textContent = "Wrong!";
+    }
+    // Increases the question array to show next question
+    currentQuestionIndex++;
+    // If there is another question, show it. If not, end the quiz
+    if (currentQuestionIndex < questions.length) {
+        showQuestion();
+    } else {
+        endQuiz();
+    }
+}
+
+function endQuiz() {
+    clearInterval(timerInterval);
+    var finalScore = score * secondsLeft;
+
+
+
+
 }
 
 
@@ -61,51 +86,7 @@ optionBtns.addEventListener("click", function () {
         currentQuestionIndex++;
     }
 
-
-
-
-
 });
-
-
-    // Emptys both the question and answers container
-    // selectionsBox.textContent = "";
-    // questionsBox.textContent = "";
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // Getting the question
-    // questionsBox.textContent = questions[id].text;
-
-    // // Getting the options
-    // const op1 = document.getElementById('op1');
-    // const op2 = document.getElementById('op2');
-    // const op3 = document.getElementById('op3');
-    // const op4 = document.getElementById('op4');
-
-    // // Providing option text
-    // op1.innerText = questions[id].options[0].text;
-    // op2.innerText = questions[id].options[1].text;
-    // op3.innerText = questions[id].options[2].text;
-    // op4.innerText = questions[id].options[3].text;
-
-    // // Providing true/false value to options
-    // op1.value = questions[id].options[0].isCorrect;
-    // op2.value = questions[id].options[1].isCorrect;
-    // op3.value = questions[id].options[2].isCorrect;
-    // op4.value = questions[id].options[3].isCorrect;
-
-
 
 
 
