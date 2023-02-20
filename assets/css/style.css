@@ -16,9 +16,7 @@ header {
 .high-scores {
     color: #3F979B;
     font-display: none;
-
 }
-
 
 #overall-container {
     display: flex;
@@ -36,7 +34,7 @@ header {
     border-bottom: solid 3px black;
 }
 
-#selections-box {
+#intro {
     padding: 30px;
     font-size: 35px;
     text-align: center;

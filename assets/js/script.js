@@ -1,8 +1,8 @@
-var instructions = document.querySelector(".intro");
 var timeCounter = document.querySelector(".time");
 var questionsBox = document.querySelector("#questions-box");
 var correctAnswerBox = document.querySelector("#wrong-right-box");
 var startBtn = document.querySelector("#start-btn");
+var instructions = document.querySelector("#intro");
 var optionBtns = document.querySelector(".option");
 var secondsLeft = 75;
 var currentQuestionIndex = 0;
@@ -27,20 +27,20 @@ questionsBox.textContent = "Coding Quiz Challenge!";
 
 // The runQuiz function is called when the start button is clicked
 function runQuiz() {
-    // Hides start button and instructions
+    // Starts timer
+    timer();
+    showQuestion();
     startBtn.style.display = "none";
     instructions.style.display = "none";
     // Shows answer buttons
     optionBtns.style.display = "block";
-    // Starts timer
-    timer();
 
 }
 
 function showQuestion() {
     var question = questions[currentQuestionIndex];
-    questionsBox.textContent = question.question;
-    for (i = 0; i < optionBtns.length; i++) {
+    questionsBox.textContent = question.text;
+    for (var i = 0; i < optionBtns.length; i++) {
         optionBtns[i].textContent = questions.options[i];
         optionBtns[i].addEventListener("click", selectAnswer);
     }
