@@ -5,17 +5,17 @@
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
+.high-scores {
+    color: #3F979B;
+    font-display: none;
+}
+
 /* header (high scores link and timer) */
 header {
     padding: 30px;
     display: flex;
     justify-content: space-between;
     font-size: 15px;
-}
-
-.high-scores {
-    color: #3F979B;
-    font-display: none;
 }
 
 #overall-container {

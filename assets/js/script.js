@@ -7,7 +7,6 @@ var optionBtns = document.querySelectorAll(".option");
 var secondsLeft = 75;
 var currentQuestionIndex = 0;
 var score = 0;
-var highScores = [];
 
 // Timer that operates throughout quiz
 function timer() {
