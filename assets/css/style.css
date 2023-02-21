@@ -5,9 +5,10 @@
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-.high-scores {
+h1 a {
     color: #3F979B;
     font-display: none;
+    text-decoration: none;
 }
 
 /* header (high scores link and timer) */
@@ -105,6 +106,3 @@ header {
 #submit-initials:hover {
     background-color: #205E61;
 }
-
-
-

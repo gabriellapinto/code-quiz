@@ -1,3 +1,4 @@
+// variable that holds all questions in an array
 var questions = [{
     question: "Commonly used data types DO NOT include:",
     answers: ["1. strings", "2. booleans", "3. alerts", "4. numbers"],

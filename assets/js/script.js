@@ -68,7 +68,7 @@ function selectAnswer() {
     }
 }
 
-
+// ends the quiz by displaying finalscore and taking the user to the highscores page
 function endQuiz() {
     var finalScore = score * secondsLeft;
     instructions.textContent = "Your Final Score is: " + finalScore;
@@ -81,21 +81,12 @@ function endQuiz() {
         questionsBox.textContent = "Quiz Over!";
         document.getElementById("initials-form").style.display = "block";
     } 
-
+    // event listener for the submit button to store score to local storage and take user to new page
     submitBtn.addEventListener("click", function() {
         var initials = document.getElementById("initials").value;
-        var scoreData = {initials: initials, score: score * secondsLeft};
+        var scoreData = {initials: initials, score: finalScore};
         highScores.push(scoreData);
         localStorage.setItem("highScores", JSON.stringify(highScores));
         window.location.href = "./high-scores.html";
     })
 }
-
-
-
-
-
-
-
-
-
