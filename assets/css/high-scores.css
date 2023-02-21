@@ -26,10 +26,23 @@
     border-bottom: solid 3px black;
 }
 
+#high-scores-index {
+    display: block;
+}
+
+li {
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+    font-size: 25px;
+    background-color:#B2D5D7;
+    
+}
+
 #clear-scores {
     width: 220px;
-    height: 60px;
     margin: auto;
+    height: 60px;
     font-size: 25px;
     background-color: #3F979B;
     color: white;

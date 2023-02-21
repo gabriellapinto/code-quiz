@@ -1,21 +1,36 @@
 var highScores = JSON.parse(localStorage.getItem("highScores")) || [];
 var clearBtn = document.getElementById("clear-scores");
-var finalScore = score * secondsLeft;
-var initials = document.getElementById("initials")
+var initials = document.getElementById("initials");
+var storedHighScores = JSON.parse(localStorage.getItem("highScores"));
+if (storedHighScores !== null) {
+    highScores = storedHighScores;
+}
+
+updateHighScores();
 
 // saves the highscores to the variable for local storage
 function saveHighScores() {
-    localStorage.setItem("highscores", JSON.stringify(highScores));
+    localStorage.setItem("highScores", JSON.stringify(highScores));
 }
 
-
-function addHighScores() {
-    highScores.push({})
+// adds highscores to the list
+function addHighScores(initials, finalScore) {
+    highScores.push({initials: initials, score: finalScore});
+    highScores.sort(function(a, b) {
+        return b.score - a.score;
+    });
+    if (highScores.length > 10) {
+        highScores.pop();
+    }
+    saveHighScores();
+    updateHighScores();
 }
 
+// 
 function updateHighScores() {
-    var highScoresList = document.getElementById("high-")
-
+    var highScoresList = document.getElementById("high-scores-list")
+    highScoresList.innerHTML = "";
+    // Appends the high score and initials to the page using a list
     for (var i = 0; i < highScores.length; i++) {
         var li = document.createElement("li");
         li.textContent = highScores[i].initials + " = " + highScores[i].finalScore;
@@ -23,21 +38,9 @@ function updateHighScores() {
     }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
 // clears the high score board when clear button is clicked
 clearBtn.addEventListener("click", function() {
     highScores = [];
-    localStorage.removeItem("highscores");
+    localStorage.removeItem("highScores");
     updateHighScores();
 })

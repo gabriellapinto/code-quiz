@@ -68,10 +68,8 @@ function selectAnswer() {
     }
 }
 
-
-
+var finalScore = score * secondsLeft;
 function endQuiz() {
-    var finalScore = score * secondsLeft;
     instructions.textContent = "Your Final Score is: " + finalScore;
     timeCounter.style.display = "none";
 
@@ -85,10 +83,10 @@ function endQuiz() {
 
     submitBtn.addEventListener("click", function() {
         var initials = document.getElementById("initials").value;
-        var scoreData = {initials: initials, score: finalScore};
+        var scoreData = {initials: initials, score: score * secondsLeft};
         highScores.push(scoreData);
         localStorage.setItem("highScores", JSON.stringify(highScores));
-        window.location.href = "./highscores.html";
+        window.location.href = "./high-scores.html";
     })
 }
 
