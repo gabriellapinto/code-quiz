@@ -30,25 +30,28 @@ function runQuiz() {
     // Starts timer
     timer();
     showQuestion();
-    startBtn.style.display = "none";
-    instructions.style.display = "none";
     // Shows answer buttons
     optionBtns.style.display = "block";
 
 }
 
 function showQuestion() {
+    startBtn.style.display = "none";
+    instructions.style.display = "none";
+
+    // optionBtns.style.display = "block"; <-- this doesnt work for some reason?
+
     var question = questions[currentQuestionIndex];
-    questionsBox.textContent = question.text;
+    questionsBox.textContent = question.question;
     for (var i = 0; i < optionBtns.length; i++) {
-        optionBtns[i].textContent = questions.options[i];
+        optionBtns[i].textContent = questions.answers[i];
         optionBtns[i].addEventListener("click", selectAnswer);
     }
 }
 
 function selectAnswer() {
     // Checks if user answers wrong or right
-    if (this.textContent === questions[currentQuestionIndex].isCorrect) {
+    if (this.textContent === questions[currentQuestionIndex].correctAnswer) {
         score++;
         correctAnswerBox.textContent = "Correct!";
     } else {
