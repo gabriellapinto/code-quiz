@@ -3,7 +3,7 @@ var questionsBox = document.querySelector("#questions-box");
 var correctAnswerBox = document.querySelector("#wrong-right-box");
 var startBtn = document.querySelector("#start-btn");
 var instructions = document.querySelector("#intro");
-var optionBtns = document.querySelectorAll(".option");
+var optionBtns = document.querySelector(".option");
 var secondsLeft = 75;
 var currentQuestionIndex = 0;
 var score = 0;
@@ -31,7 +31,7 @@ function runQuiz() {
     timer();
     showQuestion();
     // Shows answer buttons
-    optionBtns.style.display = "block";
+    
 
 }
 
@@ -39,13 +39,12 @@ function showQuestion() {
     startBtn.style.display = "none";
     instructions.style.display = "none";
 
-    // optionBtns.style.display = "block"; <-- this doesnt work for some reason?
-
     var question = questions[currentQuestionIndex];
     questionsBox.textContent = question.question;
     for (var i = 0; i < optionBtns.length; i++) {
-        optionBtns[i].textContent = questions.answers[i];
+        optionBtns[i].textContent = questions[currentQuestionIndex].answers[i];
         optionBtns[i].addEventListener("click", selectAnswer);
+        optionBtns[i].style.display = "block";
     }
 }
 
