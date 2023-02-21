@@ -10,6 +10,10 @@
     font-size: 30px;
 }
 
+h1 a {
+    text-decoration: none;
+}
+
 #hs-container {
     display: flex;
     margin: auto;

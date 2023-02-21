@@ -33,7 +33,7 @@ function updateHighScores() {
     // Appends the high score and initials to the page using a list
     for (var i = 0; i < highScores.length; i++) {
         var li = document.createElement("li");
-        li.textContent = highScores[i].initials + " = " + highScores[i].finalScore;
+        li.textContent = highScores[i].initials + " = " + highScores[i].score;
         highScoresList.appendChild(li);
     }
 }

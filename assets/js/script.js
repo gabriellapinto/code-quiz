@@ -68,8 +68,9 @@ function selectAnswer() {
     }
 }
 
-var finalScore = score * secondsLeft;
+
 function endQuiz() {
+    var finalScore = score * secondsLeft;
     instructions.textContent = "Your Final Score is: " + finalScore;
     timeCounter.style.display = "none";
 
