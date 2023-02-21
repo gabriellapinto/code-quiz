@@ -82,3 +82,31 @@ header {
 
 
 
+#initials-form {
+    margin: auto;
+    font-size: 35px;
+}
+
+#initials {
+    font-size: 30px;
+    width: 100px;
+    height: 30px;
+}
+
+#submit-initials {
+    width: 100px;
+    height: 40px;
+    margin: auto;
+    font-size: 20px;
+    background-color: #3F979B;
+    color: white;
+    border-radius: 12px;
+    border: none;
+}
+
+#submit-initials:hover {
+    background-color: #205E61;
+}
+
+
+

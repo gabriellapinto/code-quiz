@@ -3,10 +3,13 @@ var questionsBox = document.querySelector("#questions-box");
 var correctAnswerBox = document.querySelector("#wrong-right-box");
 var startBtn = document.querySelector("#start-btn");
 var instructions = document.querySelector("#intro");
+var submitBtn = document.querySelector("#submit-initials");
 var optionBtns = document.querySelectorAll(".option");
 var secondsLeft = 75;
 var currentQuestionIndex = 0;
 var score = 0;
+var highScores = [];
+var highScores = JSON.parse(localStorage.getItem("highScores")) || [];
 
 // Timer that operates throughout quiz
 function timer() {
@@ -15,6 +18,7 @@ function timer() {
         timeCounter.textContent = "Time: " + secondsLeft;
         // Clears interval and displays text when timer reaches 0
         if(secondsLeft === 0) {
+            endQuiz();
             clearInterval(timerInterval);
             timeCounter.textContent = "Sorry, you're out of time!";
         }
@@ -29,13 +33,13 @@ function runQuiz() {
     // Starts timer and runs questions
     timer();
     showQuestion();
-
 }
 
 function showQuestion() {
     startBtn.style.display = "none";
     instructions.style.display = "none";
 
+    // shows questions and answers
     var question = questions[currentQuestionIndex];
     questionsBox.textContent = question.question;
     for (var i = 0; i < optionBtns.length; i++) {
@@ -52,7 +56,7 @@ function selectAnswer() {
         correctAnswerBox.textContent = "Correct!";
     } else {
         secondsLeft -= 10;
-        correctAnswerBox.textContent = "Wrong!";
+        correctAnswerBox.textContent = "Wrong! 10 Second Penalty.";
     }
     // Increases the question array to show next question
     currentQuestionIndex++;
@@ -64,27 +68,31 @@ function selectAnswer() {
     }
 }
 
+
+
 function endQuiz() {
-    clearInterval(timerInterval);
+    var finalScore = score * secondsLeft;
+    instructions.textContent = "Your Final Score is: " + finalScore;
+    timeCounter.style.display = "none";
 
+    for (var i = 0; i < optionBtns.length; i++) {
+        optionBtns[i].style.display = "none";
+        correctAnswerBox.style.display = "none";
+        instructions.style.display = "block";
+        questionsBox.textContent = "Quiz Over!";
+        document.getElementById("initials-form").style.display = "block";
+    } 
 
-
-
+    submitBtn.addEventListener("click", function() {
+        var initials = document.getElementById("initials").value;
+        var scoreData = {initials: initials, score: finalScore};
+        highScores.push(scoreData);
+        localStorage.setItem("highScores", JSON.stringify(highScores));
+        window.location.href = "./highscores.html";
+    })
 }
 
 
-
-
-// When answer option is clicked, it will go on to the next question
-optionBtns.addEventListener("click", function () {
-    if (questions[currentQuestionIndex] == undefined) {
-        questionsBox.textContent = "Quiz Over!";
-    } else {
-        questionsBox.textContent = questions.question[currentQuestionIndex];
-        currentQuestionIndex++;
-    }
-
-});
 
 
 
