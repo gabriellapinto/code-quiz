@@ -27,10 +27,9 @@ questionsBox.textContent = "Coding Quiz Challenge!";
 
 // The runQuiz function is called when the start button is clicked
 function runQuiz() {
-    // Starts timer
+    // Starts timer and runs questions
     timer();
     showQuestion();
-    
 
 }
 
@@ -68,7 +67,6 @@ function selectAnswer() {
 
 function endQuiz() {
     clearInterval(timerInterval);
-    var finalScore = score * secondsLeft;
 
 
 
