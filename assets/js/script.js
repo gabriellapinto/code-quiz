@@ -3,7 +3,7 @@ var questionsBox = document.querySelector("#questions-box");
 var correctAnswerBox = document.querySelector("#wrong-right-box");
 var startBtn = document.querySelector("#start-btn");
 var instructions = document.querySelector("#intro");
-var optionBtns = document.querySelector(".option");
+var optionBtns = document.querySelectorAll(".option");
 var secondsLeft = 75;
 var currentQuestionIndex = 0;
 var score = 0;
@@ -30,7 +30,6 @@ function runQuiz() {
     // Starts timer
     timer();
     showQuestion();
-    // Shows answer buttons
     
 
 }
@@ -84,7 +83,7 @@ optionBtns.addEventListener("click", function () {
     if (questions[currentQuestionIndex] == undefined) {
         questionsBox.textContent = "Quiz Over!";
     } else {
-        questionsBox.textContent = questions.text[currentQuestionIndex];
+        questionsBox.textContent = questions.question[currentQuestionIndex];
         currentQuestionIndex++;
     }
 

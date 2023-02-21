@@ -52,7 +52,29 @@ header {
 }
 
 #start-btn:hover {
-    background-color: #205E61;;
+    background-color: #205E61;
+}
+
+.option {
+    width: 200px;
+    height: 70px;
+    margin: auto;
+    font-size: 22px;
+    text-align: left;
+    background-color: #205E61;
+    color: white;
+    border-radius: 12px;
+    border: none;
+}
+
+.option:hover {
+    background-color: #3F979B;
+}
+
+#wrong-right-box {
+    color: gray;
+    font-size: 25px;
+    font-style: italic;
 }
 
 
